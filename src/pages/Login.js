@@ -1,9 +1,41 @@
-import React from "react"
+import React, { useState } from "react"
+import * as requests from "../requests"
 
 const Login = () => {
+    const [form, setForm] = useState({})
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const { user, token } = await requests.loginUser({
+                email: form.email,
+                password: form.password
+            })
+            console.log(user)
+            console.log(token)
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }
+
+    const handleChange = (e) => {
+        setForm({...form, [e.target.name]: e.target.value})
+    }
+
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="container">
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="email">Email: </label>
+                    <input type="email" name="email" onChange={handleChange}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password: </label>
+                    <input type="password" name="password" onChange={handleChange}/>
+                </div>
+                <button type="submit">Login</button>
+            </form>
         </div>
     )
 }

@@ -31,7 +31,53 @@ const fetchEvent = async (id) => {
     return data.event
 }
 
+const loginUser = async ({email, password}) => {
+    const response = await fetch(apiURL + "/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email,
+            password
+        })
+    });
+    if(!response.ok) {
+        throw new Error("Something went wrong");
+    }
+    const data = await response.json();
+    return {
+        user: data.user,
+        token: data.token
+    }
+}
+
+const registerUser = async ({firstname, lastname, email, password}) => {
+    const response = await fetch(apiURL + "/auth/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            firstname,
+            lastname,
+            email,
+            password
+        })
+    });
+    if(!response.ok) {
+        throw new Error("Something went wrong");
+    }
+    const data = await response.json();
+    return {
+        user: data.user,
+        token: data.token
+    }
+}
+
 export { 
     fetchEvents, 
-    fetchEvent 
+    fetchEvent,
+    loginUser,
+    registerUser
 };

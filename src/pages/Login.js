@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { useAuth } from "../context/AuthContext"
 import * as requests from "../requests"
 
 const Login = () => {
     const [form, setForm] = useState({})
+    const { login } = useAuth()
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -11,6 +13,7 @@ const Login = () => {
                 email: form.email,
                 password: form.password
             })
+            login({ user, token })
             console.log(user)
             console.log(token)
         }

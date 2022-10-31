@@ -9,10 +9,11 @@ import NotFound from "./pages/NotFound";
 import Event from "./pages/Event/Event";
 import ProtectedRoute from "./ProtectedRoute";
 import BootstrapWrapper from "./components/BootstrapWrapper";
+import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
@@ -29,7 +30,7 @@ const App = () => {
         </Route>
         <Route path="*" element={<NotFound/>} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 

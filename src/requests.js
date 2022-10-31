@@ -75,9 +75,25 @@ const registerUser = async ({firstname, lastname, email, password}) => {
     }
 }
 
+const getUser = async (token) => {
+    const response = await fetch(apiURL + "/users/whoami", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+    });
+    if(!response.ok) {
+        throw new Error("Something went wrong");
+    }
+    const data = await response.json();
+    return data.user
+}
+
 export { 
     fetchEvents, 
     fetchEvent,
     loginUser,
-    registerUser
+    registerUser,
+    getUser
 };

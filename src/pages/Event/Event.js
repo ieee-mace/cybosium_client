@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { useAuth } from "../../context/AuthContext";
 import * as requests from "../../requests";
 
 const __DEV__ = document.domain == 'localhost';
@@ -10,12 +11,14 @@ const __DEV__ = document.domain == 'localhost';
 const Event = () => {
     const params = useParams()
 
+    const { token } = useAuth()
+
     const [event, setEvent] = useState({});
 
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-                const event = await requests.fetchEvent(params.id);
+                const event = await requests.fetchEvent({id: params.id, token});
                 setEvent(event);
             }
             catch (error) {

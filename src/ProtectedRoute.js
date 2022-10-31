@@ -26,9 +26,9 @@ const ProtectedRoute = () => {
             }
         }
         asyncFunc()
-    }, [])
+    }, [user])
 
-    return <Outlet/>
+    return user ? <Outlet /> : <div>Loading...</div>
 }
 
 export default ProtectedRoute

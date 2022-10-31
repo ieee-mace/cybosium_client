@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { useAuth } from "../../context/AuthContext";
 import * as requests from "../../requests"
 
 
@@ -8,10 +9,12 @@ const Dashboard = () => {
 
     const [events, setEvents] = useState([]);
 
+    const { token } = useAuth()
+
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-                const events = await requests.fetchEvents();
+                const events = await requests.fetchEvents(token);
                 console.log(events)
                 setEvents(events);
             }
@@ -21,7 +24,7 @@ const Dashboard = () => {
         }
 
         fetchEvent()
-    }, [])
+    }, [token])
 
     return (
         <>

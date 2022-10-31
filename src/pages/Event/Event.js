@@ -1,14 +1,33 @@
 // create a bootstrap page selling online event ticket
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import * as requests from "../../requests";
 
 const __DEV__ = document.domain == 'localhost';
 
-const OnlineTicket = () => {
+const Event = () => {
+    const params = useParams()
+
+    const [event, setEvent] = useState({});
+
+    useEffect(() => {
+        const fetchEvent = async () => {
+            try {
+                const event = await requests.fetchEvent(params.id);
+                setEvent(event);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchEvent()
+    }, [])
+
     const handleOpenStripeCheckout = async () => {
-        const url = __DEV__ ? 'http://localhost:7000/api/events/635d6685906eaf2bc4edf721/register' : 'PRODUCTION_URL';
+        const url = __DEV__ ? `http://localhost:7000/api/events/${event._id}/register` : 'PRODUCTION_URL';
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -32,8 +51,8 @@ const OnlineTicket = () => {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="hero-text">
-                                <h1>Online Event Ticket</h1>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                                <h1>{event.name}</h1>
+                                <p>{event.description}</p>
                                 <button onClick={handleOpenStripeCheckout} className="btn btn-primary">Buy Tickets</button>
                             </div>
                         </div>
@@ -50,4 +69,4 @@ const OnlineTicket = () => {
     );
 }
 
-export default OnlineTicket;
+export default Event;

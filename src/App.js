@@ -5,10 +5,10 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Account from "./pages/Account";
-import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import Event from "./pages/Event/Event";
+import ProtectedRoute from "./ProtectedRoute";
 import BootstrapWrapper from "./components/BootstrapWrapper";
-import OnlineTicket from "./pages/OnlineTicket/OnlineTicket";
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute/>}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/tickets/online" element={<OnlineTicket />} />
+            <Route path="/events/:id" element={<Event />} />
             <Route path="/my-account" element={<Account/>} />
           </Route>
         </Route>

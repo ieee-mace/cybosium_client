@@ -1,4 +1,3 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDY4NDQ2NjE1ZjgwYjYzMjY2M2E0NCIsImVtYWlsIjoicm9zaGFuMTJAZ21haWwuY29tIiwiaWF0IjoxNjY2NjA1ODQ5fQ.gu996RZzsSuam35UXucXlZUiP-wZHaDqaLo1PgzLBUg"
 const apiURL = "http://localhost:7000/api";
 
 const fetchEvents = async (token) => {

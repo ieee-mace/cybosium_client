@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import Account from "./pages/Account";
 import NotFound from "./pages/NotFound";
 import Ticket from "./pages/Ticket/Ticket";
@@ -27,8 +27,8 @@ const App = () => {
             <Route path="/tickets/:id" element={<Ticket />} />
             <Route path="/my-account" element={<Account />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>
   );

@@ -8,14 +8,14 @@ const fetchEvents = async (token) => {
             "Authorization": `Bearer ${token}`
         },
     });
-    if(!response.ok) {
+    if (!response.ok) {
         throw new Error("Something went wrong");
     }
     const data = await response.json();
     return data.events
 }
 
-const fetchEvent = async ({id, token}) => {
+const fetchEvent = async ({ id, token }) => {
     const response = await fetch(apiURL + `/events/${id}`, {
         method: "GET",
         headers: {
@@ -23,14 +23,14 @@ const fetchEvent = async ({id, token}) => {
             "Authorization": `Bearer ${token}`
         },
     });
-    if(!response.ok) {
+    if (!response.ok) {
         throw new Error("Something went wrong");
     }
     const data = await response.json();
     return data.event
 }
 
-const loginUser = async ({email, password}) => {
+const loginUser = async ({ email, password }) => {
     const response = await fetch(apiURL + "/auth/login", {
         method: "POST",
         headers: {
@@ -41,7 +41,7 @@ const loginUser = async ({email, password}) => {
             password
         })
     });
-    if(!response.ok) {
+    if (!response.ok) {
         throw new Error("Something went wrong");
     }
     const data = await response.json();
@@ -51,7 +51,7 @@ const loginUser = async ({email, password}) => {
     }
 }
 
-const registerUser = async ({firstname, lastname, email, password}) => {
+const registerUser = async ({ firstname, lastname, email, password }) => {
     const response = await fetch(apiURL + "/auth/register", {
         method: "POST",
         headers: {
@@ -64,7 +64,7 @@ const registerUser = async ({firstname, lastname, email, password}) => {
             password
         })
     });
-    if(!response.ok) {
+    if (!response.ok) {
         throw new Error("Something went wrong");
     }
     const data = await response.json();
@@ -82,15 +82,15 @@ const getUser = async (token) => {
             "Authorization": `Bearer ${token}`
         },
     });
-    if(!response.ok) {
+    if (!response.ok) {
         throw new Error("Something went wrong");
     }
     const data = await response.json();
     return data.user
 }
 
-export { 
-    fetchEvents, 
+export {
+    fetchEvents,
     fetchEvent,
     loginUser,
     registerUser,

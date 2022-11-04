@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import DashHeader from "../../components/DashHeader/DashHeader";
+import Layout from "../../components/Layout/Layout";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAuth } from "../../context/AuthContext";
 import * as requests from "../../requests";
@@ -16,6 +17,10 @@ const Event = () => {
 
     const [event, setEvent] = useState({});
 
+    const [message, setMessage] = useState(null)
+
+    const closeMessage = () => setMessage(null)
+
     useEffect(() => {
         const fetchEvent = async () => {
             try {
@@ -23,6 +28,10 @@ const Event = () => {
                 setEvent(event);
             }
             catch (error) {
+                setMessage({
+                    type: 'error',
+                    text: error.message
+                })
                 console.log(error);
             }
         }
@@ -47,19 +56,13 @@ const Event = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col-2 text-center">
-                <Navbar />
+        <Layout title="Tickets" subtitle="Buy tickets now!" message={message} closeMessage={closeMessage}>
+            <div className="hero-text">
+                <h1>{event.name}</h1>
+                <p>{event.description}</p>
+                <button onClick={handleOpenStripeCheckout} className="btn btn-primary">Buy Tickets</button>
             </div>
-            <div className="col-10 container">
-                <DashHeader title="Tickets" subtitle="Buy tickets now!" />
-                <div className="hero-text">
-                    <h1>{event.name}</h1>
-                    <p>{event.description}</p>
-                    <button onClick={handleOpenStripeCheckout} className="btn btn-primary">Buy Tickets</button>
-                </div>
-            </div>
-        </div>
+        </Layout>
     );
 }
 

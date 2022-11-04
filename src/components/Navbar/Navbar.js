@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import styles from "./Navbar.module.scss";
 
+
 const Navbar = () => {
     const { user, logout } = useAuth()
 
@@ -10,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div className={`text-center ${styles.nav}`}>
-            <div className="my-4">
+            <div className="my-5">
                 <img
                     src={`https://avatars.dicebear.com/api/initials/${user.firstname}.svg`}
                     style={{ height: "80px", borderRadius: "50%" }}

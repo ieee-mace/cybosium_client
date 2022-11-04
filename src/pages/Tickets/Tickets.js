@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DashHeader from "../../components/DashHeader/DashHeader";
+import Layout from "../../components/Layout/Layout";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAuth } from "../../context/AuthContext";
 import * as requests from "../../requests"
@@ -32,27 +33,21 @@ const Tickets = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col-2 text-center">
-                <Navbar />
-            </div>
-            <div className="col-10">
-                <DashHeader title="Tickets" subtitle="Buy tickets now!" />
-                <div className="row">
-                    {/* card  */}
-                    {events.map((event) => (
-                        <div className="card col-3" key={event._id}>
-                            <div className="card-body">
-                                <h5 className="card-title">{event.name}</h5>
-                                <p className="card-text">{event.description}</p>
-                                <p className="card-text">{event.price}</p>
-                                <Link to={`/tickets/${event._id}`} className="btn btn-primary">Buy Tickets</Link>
-                            </div>
+        <Layout title="Tickets" subtitle="Buy tickets now!">
+            <div className="row">
+                {/* card  */}
+                {events.map((event) => (
+                    <div className="card col-3" key={event._id}>
+                        <div className="card-body">
+                            <h5 className="card-title">{event.name}</h5>
+                            <p className="card-text">{event.description}</p>
+                            <p className="card-text">{event.price}</p>
+                            <Link to={`/tickets/${event._id}`} className="btn btn-primary">Buy Tickets</Link>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
-        </div>
+        </Layout>
     )
 
     // return (

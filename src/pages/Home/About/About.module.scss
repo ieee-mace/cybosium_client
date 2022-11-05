@@ -1,0 +1,48 @@
+.About {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    &__cards {
+        margin-top: 4rem;
+        position: relative;
+        padding: 4rem 0 2rem 0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: calc(100% + 12rem);
+            transform: translateX(-6rem);
+            height: 100%;
+            left: 0;
+            top: 0;
+            // backdrop-filter: blur(55px);
+            border: 1px solid rgb(26, 228, 235);
+        }
+    }
+
+    @media (max-width: 1400px) {
+        &__cards {
+            &::after {
+                width: 100%;
+                transform: none;
+            }
+        }
+    }
+}
+
+.Card {
+    color: white;
+    z-index: 1;
+    // padding: 74px 130px;
+    height: 300px;
+
+    &__title {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    &__description {
+        font-size: 18px;
+        font-weight: bold;
+    }
+}

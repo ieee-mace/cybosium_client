@@ -17,7 +17,11 @@ const Message = ({ message, closeMessage }) => {
     return (
         <>
             <div className={styles.Message}>
-                <p className={styles.Message__text}>{message.text}</p>
+                <p className={`
+                        ${styles.Message__text}
+                        ${message.type == "error" ? styles.Message__error : ""}
+                        ${message.type == "success" ? styles.Message__success : ""}
+                    `}>{message.text}</p>
                 <button className={styles.Message__close} onClick={closeMessage}>X</button>
             </div>
         </>

@@ -1,0 +1,116 @@
+.container {
+    padding: 4rem 5rem;
+    display: flex;
+}
+
+.Tickets {
+    width: 80%;
+}
+
+.BuyTicket {
+    width: 20%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    // background-color: blue;
+    height: 100%;
+}
+
+.Ticket {
+    position: relative;
+
+    &__img {
+        width: 100%;
+        background-image: url(../../assets/images/pattern.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 350px;
+        margin-bottom: 20px;
+    }
+
+    &__name {}
+
+    &__description {
+        margin-bottom: 10px;
+    }
+
+    &__buy {
+        text-decoration: none;
+        background-color: #1588b6;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #107197;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 50%;
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+
+        svg {
+            color: black;
+        }
+    }
+}
+
+.Card {
+    background-color: white;
+    max-width: 720px;
+    border-radius: 8px;
+    display: flex;
+
+
+    // very light and invisible box shadow with more depth
+    box-shadow: 0 0 10px 0 rgba(165, 165, 165, 0.1), 0 0 20px 0 rgba(110, 110, 110, 0.09);
+
+    &__img {
+        width: 30%;
+        background-image: url(../../assets/images/pattern.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__content {
+        width: 80%;
+        padding: 20px 20px 30px 25px;
+    }
+
+    &__price {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    &__name {
+        font-size: 18px;
+    }
+
+    &__buy {
+        text-decoration: none;
+        background-color: #1588b6;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: #107197;
+        }
+    }
+}

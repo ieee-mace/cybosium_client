@@ -10,6 +10,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import BootstrapWrapper from "./components/BootstrapWrapper";
 import { AuthProvider } from "./context/AuthContext";
 import Tickets from "./pages/Tickets/Tickets";
+import "./assets/scss/global.scss"
 
 const App = () => {
   return (

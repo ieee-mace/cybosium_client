@@ -3,7 +3,7 @@ import Message from "../Message/Message";
 import Navbar from "../Navbar/Navbar";
 import styles from "./Layout.module.scss";
 
-const Layout = ({ title, subtitle, children, message = null, closeMessage = () => { } }) => {
+const Layout = ({ title, subtitle, children, message = null, closeMessage = () => { }, active = null }) => {
     return (
         <div className={styles.Layout}>
             {message &&
@@ -11,15 +11,13 @@ const Layout = ({ title, subtitle, children, message = null, closeMessage = () =
                     <Message message={message} closeMessage={closeMessage} />
                 </div>
             }
-            <div className="row g-0">
-                <div className="col-2 text-center border border-bottom vh-100">
-                    <Navbar />
+            <div className={styles.Layout}>
+                <div className={styles.Layout__navbar}>
+                    <Navbar active={active} />
                 </div>
-                <div className="col-10">
+                <div className={styles.Layout__dashboard}>
                     <DashHeader title={title} subtitle={subtitle} />
-                    <div className="container py-5">
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </div>
         </div>

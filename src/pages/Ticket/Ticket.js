@@ -8,6 +8,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useAuth } from "../../context/AuthContext";
 import * as requests from "../../requests";
 
+import styles from "./Ticket.module.scss"
+
 const __DEV__ = document.domain == 'localhost';
 
 const Event = () => {
@@ -57,10 +59,10 @@ const Event = () => {
 
     return (
         <Layout title="Tickets" subtitle="Buy tickets now!" message={message} closeMessage={closeMessage}>
-            <div className="hero-text">
-                <h1>{event.name}</h1>
-                <p>{event.description}</p>
-                <button onClick={handleOpenStripeCheckout} className="btn btn-primary">Buy Tickets</button>
+            <div className={styles.Ticket}>
+                <h1 className={styles.Ticket__name}>{event.name}</h1>
+                <p className={styles.Ticket__description}>{event.description}</p>
+                <button onClick={handleOpenStripeCheckout} className={styles.Ticket__buy}>Buy Tickets</button>
             </div>
         </Layout>
     );

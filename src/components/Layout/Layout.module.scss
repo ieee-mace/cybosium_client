@@ -11,4 +11,27 @@
     }
 }
 
-.Layout {}
+.Layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+
+    &__navbar {
+        width: fit-content;
+        height: 100%;
+    }
+
+    &__dashboard {
+        flex: 1;
+        background-color: #FAFAFA;
+    }
+}
+
+.logo {
+    height: 150px !important;
+
+    @media (max-width: 991px) {
+        height: 80px !important;
+    }
+}

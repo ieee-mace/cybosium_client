@@ -1,5 +1,15 @@
-.dashHeader {
-    background-color: purple;
-    color: white;
-    // padding: 5rem;
+.DashHeader {
+    &__container {
+        padding: 0 5rem;
+    }
+
+    &__welcome {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        font-size: 24px;
+    }
+
+    &__title {
+        font-size: 48px;
+    }
 }

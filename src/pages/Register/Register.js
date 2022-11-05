@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Message from "../../components/Message/Message"
 import { useAuth } from "../../context/AuthContext"
@@ -7,21 +7,39 @@ import styles from "./Register.module.scss"
 
 const Register = () => {
     const [form, setForm] = useState({})
-    const { login } = useAuth()
-
-    const navigator = useNavigate()
+    const { user, login } = useAuth()
 
     const [message, setMessage] = useState(null)
 
+    const navigator = useNavigate()
+
+    useEffect(() => {
+        console.log(user)
+        const asyncFunc = async () => {
+            if (user) {
+                navigator("/tickets")
+            }
+            else {
+                const token = localStorage.getItem("token")
+                try {
+                    const user = await requests.getUser(token)
+                    login({ user, token })
+                    navigator("/tickets")
+                }
+                catch (err) { }
+            }
+        }
+        asyncFunc()
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
             const { user, token } = await requests.registerUser({
-                email: form.email,
-                password: form.password,
                 firstname: form.firstname,
-                lastname: form.lastname
+                lastname: form.lastname,
+                email: form.email,
+                password: form.password
             })
             login({ user, token })
             navigator("/tickets")
@@ -38,42 +56,41 @@ const Register = () => {
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
+
     const closeMessage = () => setMessage(null)
 
     return (
-        <div className="container">
+        <div>
             {message &&
                 <div className={styles.messages}>
                     <Message message={message} closeMessage={closeMessage} />
                 </div>
             }
-            <div className="row">
-                <div className="col-12 col-md-5">
-                    <h1 className="my-4">Register</h1>
-                    <form onSubmit={handleSubmit} noValidate className="was-validated">
-                        <div className="row g-3 mb-3">
-                            <div className="col-md-6">
-                                <label htmlFor="login-form-firstname" className="form-label">Firstname</label>
-                                <input type="text" className="form-control" name="firstname" id="login-form-firstname" onChange={handleChange} required />
-                                <div className="invalid-feedback">Firstname is required</div>
+            <div className={styles.Register}>
+                <div className={styles.Register__left}>
+                    <h1 className={styles.Register__title}>Register</h1>
+                    <form onSubmit={handleSubmit} noValidate className={styles.Register__form}>
+                        <div className={styles.Register__formRow}>
+                            <div className={styles.Register__formGroup}>
+                                <label htmlFor="login-form-firstname" className={styles.Register__formLabel}>Firstname</label>
+                                <input type="text" className={styles.Register__formInput} name="firstname" id="login-form-firstname" onChange={handleChange} required />
                             </div>
-                            <div className="col-md-6">
-                                <label htmlFor="login-form-lastname" className="form-label">Lastname</label>
-                                <input type="text" className="form-control" name="lastname" id="login-form-lastname" onChange={handleChange} required />
-                                <div className="invalid-feedback">Lastname is required</div>
+
+                            <div className={styles.Register__formGroup}>
+                                <label htmlFor="login-form-lastname" className={styles.Register__formLabel}>Lastname</label>
+                                <input type="text" className={styles.Register__formInput} name="lastname" id="login-form-lastname" onChange={handleChange} required />
                             </div>
                         </div>
-                        <div className="mb-3">
-                            <label htmlFor="login-form-email" className="form-label">Email</label>
-                            <input type="email" className="form-control" name="email" id="login-form-email" onChange={handleChange} required />
-                            <div className="invalid-feedback">Enter valid email</div>
+                        <div className={styles.Register__formGroup}>
+                            <label htmlFor="login-form-email" className={styles.Register__formLabel}>Email</label>
+                            <input type="email" className={styles.Register__formInput} name="email" id="login-form-email" onChange={handleChange} required />
                         </div>
-                        <div className="mb-3">
-                            <label htmlFor="login-form-password" className="form-label">Password</label>
-                            <input type="password" className="form-control" name="password" id="login-form-password" onChange={handleChange} required />
-                            <div className="invalid-feedback">Password is required</div>
+
+                        <div className={styles.Register__formGroup}>
+                            <label htmlFor="login-form-password" className={styles.Register__formLabel}>Password</label>
+                            <input type="password" className={styles.Register__formInput} name="password" id="login-form-password" onChange={handleChange} required />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className={styles.Register__formButton}>Submit</button>
                     </form>
                 </div>
             </div>

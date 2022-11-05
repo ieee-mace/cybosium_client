@@ -1,4 +1,5 @@
 import { createRef, useEffect } from "react";
+import styles from "./Message.module.scss"
 
 const MESSAGE_TYPES = {
     ERROR: "error",
@@ -15,13 +16,9 @@ const Message = ({ message, closeMessage }) => {
 
     return (
         <>
-            <div className={`toast show align-items-center border-0 ${message.type == "error" ? "text-bg-danger" : ""} ${message.type == MESSAGE_TYPES.SUCCESS && "text-bg-success"}`} role="alert" aria-live="assertive" aria-atomic="true">
-                <div className="d-flex">
-                    <div className="toast-body">
-                        {message.text}
-                    </div>
-                    <button type="button" className="btn-close btn-close-white me-2 m-auto" onClick={() => closeMessage()}></button>
-                </div>
+            <div className={styles.Message}>
+                <p className={styles.Message__text}>{message.text}</p>
+                <button className={styles.Message__close} onClick={closeMessage}>X</button>
             </div>
         </>
     );

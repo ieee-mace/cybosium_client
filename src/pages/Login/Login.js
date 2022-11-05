@@ -58,27 +58,25 @@ const Login = () => {
     const closeMessage = () => setMessage(null)
 
     return (
-        <div className="container">
+        <div>
             {message &&
                 <div className={styles.messages}>
                     <Message message={message} closeMessage={closeMessage} />
                 </div>
             }
-            <div className="row">
-                <div className="col-12 col-md-4">
-                    <h1 className="my-4">Login</h1>
-                    <form onSubmit={handleSubmit} noValidate className="was-validated">
-                        <div class="mb-3">
-                            <label htmlFor="login-form-email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email" id="login-form-email" onChange={handleChange} required />
-                            <div class="invalid-feedback">Enter a valid email</div>
+            <div className={styles.Login}>
+                <div className={styles.Login__left}>
+                    <h1 className={styles.Login__title}>Login</h1>
+                    <form onSubmit={handleSubmit} noValidate className={styles.Login__form}>
+                        <div className={styles.Login__formGroup}>
+                            <label htmlFor="login-form-email" className={styles.Login__formLabel}>Email address</label>
+                            <input type="email" className={styles.Login__formInput} name="email" id="login-form-email" onChange={handleChange} required />
                         </div>
-                        <div class="mb-3">
-                            <label htmlFor="login-form-password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="login-form-password" onChange={handleChange} required />
-                            <div className="invalid-feedback">Password is required</div>
+                        <div className={styles.Login__formGroup}>
+                            <label htmlFor="login-form-password" className={styles.Login__formLabel}>Password</label>
+                            <input type="password" className={styles.Login__formInput} name="password" id="login-form-password" onChange={handleChange} required />
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" className={styles.Login__formButton}>Submit</button>
                     </form>
                 </div>
             </div>

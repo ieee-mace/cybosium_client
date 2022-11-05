@@ -10,3 +10,78 @@
         margin-top: 1rem;
     }
 }
+
+.Register {
+    padding: 3rem 5rem;
+
+    &__formRow {
+        display: flex;
+    }
+
+    &__formRow &__formGroup {
+        flex: 1;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+
+    &__title {
+        font-size: 48px;
+        margin-bottom: 1rem;
+    }
+
+    &__form {
+        max-width: 500px;
+    }
+
+    &__formGroup {
+        margin-bottom: 1rem;
+    }
+
+
+    &__formLabel {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    &__formInput {
+        display: block;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+
+    &__formButton {
+        margin-top: 10px;
+        text-decoration: none;
+        background-color: #1588b6;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+
+        &:hover {
+            background-color: #107197;
+        }
+    }
+
+    @media(max-width: 425px) {
+        padding: 3rem 2rem;
+
+        &__formRow {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__formRow &__formGroup {
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+    }
+
+}

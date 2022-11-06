@@ -1,13 +1,33 @@
 .Message {
-    display: block;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.5rem 0.5rem 0.8rem;
 
-    &__text {}
+    &__text {
+        margin-right: 0.5rem;
+    }
 
     &__error {
-        background-color: red;
+        background-color: #dc3545;
+        color: white;
     }
 
     &__success {
-        background-color: green;
+        background-color: #198754;
+    }
+
+    &__close {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: inherit;
+
+        svg {
+            color: inherit;
+            height: 30px;
+            width: 30px;
+        }
     }
 }

@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:7000/api";
+const apiURL = process.env.REACT_APP_API_URL || "http://localhost:7000/api";
 
 const fetchEvents = async (token) => {
     const response = await fetch(apiURL + "/events", {

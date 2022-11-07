@@ -1,4 +1,5 @@
-const apiURL = process.env.REACT_APP_API_URL || "http://localhost:7000/api";
+const API_URL = "https://api-cybosium.ieeemace.org/api"
+const apiURL = API_URL || "http://localhost:7000/api";
 
 const fetchEvents = async (token) => {
     const response = await fetch(apiURL + "/events", {

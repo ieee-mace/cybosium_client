@@ -1,8 +1,8 @@
-const API_URL = "https://api-cybosium.ieeemace.org/api"
-const apiURL = API_URL || "http://localhost:7000/api";
+const __DEV__ = document.domain == 'localhost';
+const API_URL = __DEV__ ? "http://localhost:8000/api" : "https://api-cybosium.ieeemace.org/api"
 
 const fetchEvents = async (token) => {
-    const response = await fetch(apiURL + "/events", {
+    const response = await fetch(API_URL + "/events", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ const fetchEvents = async (token) => {
 }
 
 const fetchEvent = async ({ id, token }) => {
-    const response = await fetch(apiURL + `/events/${id}`, {
+    const response = await fetch(API_URL + `/events/${id}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const fetchEvent = async ({ id, token }) => {
 }
 
 const loginUser = async ({ email, password }) => {
-    const response = await fetch(apiURL + "/auth/login", {
+    const response = await fetch(API_URL + "/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const loginUser = async ({ email, password }) => {
 }
 
 const registerUser = async ({ firstname, lastname, email, password }) => {
-    const response = await fetch(apiURL + "/auth/register", {
+    const response = await fetch(API_URL + "/auth/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const registerUser = async ({ firstname, lastname, email, password }) => {
 }
 
 const getUser = async (token) => {
-    const response = await fetch(apiURL + "/users/whoami", {
+    const response = await fetch(API_URL + "/users/whoami", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

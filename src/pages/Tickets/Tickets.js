@@ -9,7 +9,7 @@ import styles from "./Tickets.module.scss"
 import moment from "moment";
 
 const __DEV__ = document.domain == 'localhost';
-const API_URL = "https://api-cybosium.ieeemace.org/api"
+const API_URL = __DEV__ ? "http://localhost:8000/api" : "https://api-cybosium.ieeemace.org/api"
 
 const Tickets = () => {
 
@@ -44,7 +44,7 @@ const Tickets = () => {
 
 
     const handleOpenStripeCheckout = async () => {
-        const url = __DEV__ ? `http://localhost:7000/api/events/${event._id}/register` : `${API_URL}/events/${event.id}/register`;
+        const url = `${API_URL}/events/${event.id}/register`
         const response = await fetch(url, {
             method: 'POST',
             headers: {

@@ -10,6 +10,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import BootstrapWrapper from "./components/BootstrapWrapper";
 import { AuthProvider } from "./context/AuthContext";
 import Tickets from "./pages/Tickets/Tickets";
+import Admin from "./pages/Admin/Admin"
 import "./assets/scss/global.scss"
 
 const App = () => {
@@ -18,18 +19,19 @@ const App = () => {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
-        <Route element={<BootstrapWrapper />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-          {/* Protected Routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/tickets" element={<Tickets />} />
-            <Route path="/tickets/:id" element={<Ticket />} />
-            <Route path="/my-account" element={<Account />} />
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/tickets" element={<Tickets />} />
+          <Route path="/tickets/:id" element={<Ticket />} />
+          <Route path="/my-account" element={<Account />} />
+          <Route element={<BootstrapWrapper />}>
+            <Route path="/admin/*" element={<Admin />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>
   );

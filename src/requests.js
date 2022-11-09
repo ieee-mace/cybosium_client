@@ -31,6 +31,53 @@ const fetchEvent = async ({ id, token }) => {
     return data.event
 }
 
+const createEvent = async ({ name, description, date, mode, price, registration_open, token }) => {
+    console.log({
+        name,
+        description,
+        registration_open,
+        date,
+        mode,
+        price
+    })
+    const response = await fetch(API_URL + "/events", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            name,
+            description,
+            registration_open,
+            date,
+            mode,
+            price
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error("Something went wrong");
+    }
+    const data = await response.json();
+    return data.event
+}
+
+const deleteEvent = async ({ id, token }) => {
+    const response = await fetch(API_URL + `/events/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+    });
+    if (!response.ok) {
+        throw new Error("Something went wrong");
+    }
+    const data = await response.json();
+    return data.event
+}
+
 const loginUser = async ({ email, password }) => {
     const response = await fetch(API_URL + "/auth/login", {
         method: "POST",
@@ -93,6 +140,8 @@ const getUser = async (token) => {
 export {
     fetchEvents,
     fetchEvent,
+    createEvent,
+    deleteEvent,
     loginUser,
     registerUser,
     getUser

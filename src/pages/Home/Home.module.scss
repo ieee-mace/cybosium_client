@@ -1,3 +1,4 @@
+@use "../../assets/scss/variables.scss" as variables;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .Home {
@@ -6,4 +7,47 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
+
+    &__container {
+        max-width: variables.$hero-width;
+        margin: 0 auto;
+    }
+
+    &__HeroWrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    &__Hero {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    &__HeroContent {
+        z-index: 1;
+    }
+
+    &__HeroBg {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(120px, 280px);
+    }
+
+    @media (max-width: 1001px) {
+        padding: 0 20px;
+
+        &__HeroBg {
+            transform: translate(120px, 280px);
+        }
+    }
+
+    @media(max-width: 808px) {
+        &__HeroWrapper {
+            min-height: 80vh;
+        }
+    }
 }

@@ -1,0 +1,21 @@
+.Counter {
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+        background-color: hsl(0, 0%, 5%);
+        width: 28%;
+        padding: 30px 40px;
+    }
+
+    &__text {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    &__number {
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+}

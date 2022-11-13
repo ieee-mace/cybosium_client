@@ -2,6 +2,8 @@ import React from 'react'
 import styles from "./Home.module.scss"
 import Navbar from "./Navbar/Navbar"
 import Hero from "./Hero/Hero"
+import Intro from "./Intro/Intro"
+import Counter from "./Counter/Counter"
 import OneBotImage from "../../assets/images/one-bot.png"
 
 const Home = () => {
@@ -22,6 +24,13 @@ const Home = () => {
 
                 </div>
 
+                <div className={styles.Home__Intro}>
+                    <Intro />
+                </div>
+
+                <div className={styles.Home__Counter}>
+                    <Counter />
+                </div>
             </div>
         </div>
     )

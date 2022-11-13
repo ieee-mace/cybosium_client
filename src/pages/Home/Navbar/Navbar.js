@@ -1,29 +1,32 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import Logo from "../../../assets/images/cybosium-logo.png"
-import styles from "./Navbar.module.scss"
+import React from 'react'
+import PropTypes from 'prop-types'
+import styles from "./Navbar.module.scss";
+import Icon from "../../../assets/images/cybosium-logo.png"
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggle = () => setIsOpen(!isOpen)
+const Navbar = (props) => {
+    const [menuOpen, setMenuOpen] = React.useState(false);
 
     return (
         <div className={styles.Navbar}>
-            <div className={styles.Navbar__logo}>
-                <img src={Logo} />
+            <div className={styles.Navbar__controls}>
+                <div className={styles.Navbar__image}>
+                    <img src={Icon} alt="Logo" />
+                </div>
+
+                <button className={styles.Navbar__menu} onClick={() => setMenuOpen(!menuOpen)}>+</button>
             </div>
-            <button className={styles.Navbar__hamburger} onClick={toggle}><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-            </svg></button>
-            <ul className={`${styles.Navbar__nav} ${isOpen && styles.Navbar__nav__open}`}>
-                <li className={styles.Navbar__navItem}><Link to="/">Home</Link></li>
-                <li className={styles.Navbar__navItem}><Link to="/tickets">Dashboard</Link></li>
-                <li className={`${styles.Navbar__navItem} ${styles.Navbar__navBtn}`}><Link>Login</Link></li>
+
+            <ul className={`${styles.Navbar__links} ${menuOpen ? styles.Navbar__links_active : ""}`}>
+                <li className={styles.Navbar__link}><Link to="/">Home page</Link></li>
+                <li className={styles.Navbar__link}><Link to="/">Buy tickets</Link></li>
+                <li className={styles.Navbar__link}><Link to="/">Call for sponsors</Link></li>
+                <li className={styles.Navbar__link}><Link to="/">Call for robots</Link></li>
             </ul>
         </div>
     )
-
 }
+
+Navbar.propTypes = {}
 
 export default Navbar

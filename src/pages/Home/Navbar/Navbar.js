@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from "./Navbar.module.scss";
-import Icon from "../../../assets/images/cybosium-logo.png"
+import Logo from "../../../assets/images/cybosium-logo.png"
+import MenuIcon from "../../../assets/images/icons/menu.svg"
 import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
@@ -11,10 +12,10 @@ const Navbar = (props) => {
         <div className={styles.Navbar}>
             <div className={styles.Navbar__controls}>
                 <div className={styles.Navbar__image}>
-                    <img src={Icon} alt="Logo" />
+                    <img src={Logo} alt="Logo" />
                 </div>
 
-                <button className={styles.Navbar__menu} onClick={() => setMenuOpen(!menuOpen)}>+</button>
+                <button className={styles.Navbar__menu} onClick={() => setMenuOpen(!menuOpen)}><img src={MenuIcon} /></button>
             </div>
 
             <ul className={`${styles.Navbar__links} ${menuOpen ? styles.Navbar__links_active : ""}`}>

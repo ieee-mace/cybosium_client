@@ -81,8 +81,13 @@
         &__menu {
             display: inline-block;
 
-            button {
-                padding: 10px;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+            img {
+                height: 25px;
             }
         }
 

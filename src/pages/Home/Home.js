@@ -6,6 +6,7 @@ import Intro from "./Intro/Intro"
 import Counter from "./Counter/Counter"
 import Tracks from "./Tracks/Tracks"
 import Queries from "./Queries/Queries"
+import Register from "./Register/Register"
 import OneBotImage from "../../assets/images/one-bot.png"
 
 const Home = () => {
@@ -40,6 +41,10 @@ const Home = () => {
 
                 <div className={styles.Home__Queries}>
                     <Queries />
+                </div>
+
+                <div className={styles.Home__Register}>
+                    <Register />
                 </div>
             </div>
         </div>

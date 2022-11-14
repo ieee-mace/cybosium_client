@@ -1,0 +1,29 @@
+.Register {
+    display: flex;
+    justify-content: center;
+
+    &__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__description {
+        font-size: 36px;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: 425px) {
+        &__description {
+            font-size: 34px;
+        }
+    }
+}

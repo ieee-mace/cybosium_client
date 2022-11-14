@@ -5,6 +5,7 @@ import Hero from "./Hero/Hero"
 import Intro from "./Intro/Intro"
 import Counter from "./Counter/Counter"
 import Tracks from "./Tracks/Tracks"
+import Queries from "./Queries/Queries"
 import OneBotImage from "../../assets/images/one-bot.png"
 
 const Home = () => {
@@ -35,6 +36,10 @@ const Home = () => {
 
                 <div className={styles.Home__Tracks}>
                     <Tracks />
+                </div>
+
+                <div className={styles.Home__Queries}>
+                    <Queries />
                 </div>
             </div>
         </div>

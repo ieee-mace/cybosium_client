@@ -25,4 +25,8 @@
             width: 28px;
         }
     }
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 }

@@ -1,0 +1,62 @@
+.Tracks {
+    &__title {
+        font-size: 96px;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+
+    &__cards {
+        display: flex;
+        margin-bottom: 24px;
+    }
+
+    &__card {
+        background-color: hsl(0, 0%, 5%);
+        padding: 35px;
+        font-size: 24px;
+        width: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    @media (max-width: 808px) {
+        &__title {
+            font-size: 64px;
+        }
+
+        &__cards {
+            flex-direction: column;
+        }
+
+        &__card {
+            width: 340px;
+            font-size: 20px;
+
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 425px) {
+        &__card {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 426px) {
+        &__buttonWrapper> :nth-child(1) {
+            width: 340px;
+        }
+    }
+}

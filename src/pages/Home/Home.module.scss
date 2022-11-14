@@ -8,6 +8,7 @@
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 
+
     &__container {
         max-width: variables.$hero-width;
         margin: 0 auto;
@@ -37,13 +38,12 @@
         transform: translate(120px, 280px);
     }
 
-    &__Intro {
+    &__Intro,
+    &__Counter,
+    &__Tracks {
         margin-bottom: 300px;
     }
 
-    &__Counter {
-        margin-bottom: 300px;
-    }
 
     @media (max-width: 1001px) {
         padding: 0 20px;
@@ -56,6 +56,12 @@
     @media(max-width: 808px) {
         &__HeroWrapper {
             min-height: 80vh;
+        }
+
+        &__Intro,
+        &__Counter,
+        &__Tracks {
+            margin-bottom: 120px;
         }
     }
 }

@@ -11,6 +11,7 @@ import BootstrapWrapper from "./components/BootstrapWrapper";
 import { AuthProvider } from "./context/AuthContext";
 import Tickets from "./pages/Tickets/Tickets";
 import Admin from "./pages/Admin/Admin"
+import OpeningSoon from "./pages/OpeningSoon/OpeningSoon"
 import "./assets/scss/global.scss"
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/opening-soon" element={<OpeningSoon />} />
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>

@@ -1,0 +1,25 @@
+@use "../../assets/scss/variables.scss" as variables;
+
+.OpeningSoon {
+    background-color: black;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    &__navbar {
+        width: 100%;
+    }
+
+    &__content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+
+        h1 {
+            transform: translateY(-100px);
+        }
+    }
+}

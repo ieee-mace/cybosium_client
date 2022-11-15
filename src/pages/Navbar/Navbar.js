@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from "./Navbar.module.scss";
-import Logo from "../../../assets/images/cybosium-logo.png"
-import MenuIcon from "../../../assets/images/icons/menu.svg"
+import Logo from "../../assets/images/cybosium-logo.png"
+import MenuIcon from "../../assets/images/icons/menu.svg"
 import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {

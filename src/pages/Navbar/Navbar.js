@@ -20,7 +20,7 @@ const Navbar = (props) => {
 
             <ul className={`${styles.Navbar__links} ${menuOpen ? styles.Navbar__links_active : ""}`}>
                 <li className={styles.Navbar__link}><Link to="/">Home page</Link></li>
-                <li className={styles.Navbar__link}><Link to="/">Buy tickets</Link></li>
+                <li className={styles.Navbar__link}><Link to="/opening-soon">Buy tickets</Link></li>
                 <li className={styles.Navbar__link}><Link to="/">Call for sponsors</Link></li>
                 <li className={styles.Navbar__link}><Link to="/">Call for robots</Link></li>
             </ul>

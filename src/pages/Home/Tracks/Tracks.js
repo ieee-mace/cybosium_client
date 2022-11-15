@@ -2,8 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from "./Tracks.module.scss";
 import Button from "../Button/Button"
+import { useNavigate } from 'react-router-dom';
 
 const Tracks = (props) => {
+    const navigate = useNavigate()
+
     return (
         <div className={styles.Tracks}>
             <h1 className={styles.Tracks__title}>TRACKS</h1>
@@ -19,7 +22,7 @@ const Tracks = (props) => {
                 </div>
             </div>
             <div className={styles.Tracks__buttonWrapper}>
-                <Button filled={true} text="Register Now" />
+                <Button filled={true} text="Register Now" onclick={() => navigate("/opening-soon")} />
             </div>
         </div>
     )

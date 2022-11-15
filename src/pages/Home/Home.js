@@ -8,6 +8,7 @@ import Tracks from "./Tracks/Tracks"
 import Queries from "./Queries/Queries"
 import Register from "./Register/Register"
 import Footer from "./Footer/Footer"
+import About from "./About/About"
 import OneBotImage from "../../assets/images/one-bot.png"
 
 const Home = () => {
@@ -34,6 +35,10 @@ const Home = () => {
 
                 <div className={styles.Home__Counter}>
                     <Counter />
+                </div>
+
+                <div className={styles.Home__About}>
+                    <About />
                 </div>
 
                 <div className={styles.Home__Tracks}>

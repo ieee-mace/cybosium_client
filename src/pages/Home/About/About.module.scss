@@ -47,4 +47,28 @@
             }
         }
     }
+
+    @media (max-width: 966px) {
+        &__title {
+            span {
+                display: inline-block;
+            }
+        }
+    }
+
+    @media (max-width: 582px) {
+        &__title {
+            span {
+                font-size: 50px;
+                display: block;
+                width: fit-content;
+            }
+        }
+    }
+
+    @media (max-width: 808px) {
+        &__title {
+            font-size: 64px;
+        }
+    }
 }

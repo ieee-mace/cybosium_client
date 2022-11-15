@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Pagination } from 'swiper';
+import { EffectFade, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import 'swiper/css/autoplay'
+
 import styles from "./About.module.scss";
 import "./About.scss"
 
@@ -64,15 +66,15 @@ const About = (props) => {
     const [activeSlideIndex, setActiveSlideIndex] = useState(0)
 
     const handleSlideChange = (swiper) => {
-        setActiveSlideIndex(swiper.activeIndex)
+        setActiveSlideIndex(swiper.realIndex)
     }
 
     return (
         <>
             <div className={`${styles.About} About`}>
-                <h1 className={styles.About__title}>ABOUT <span>{contents[activeSlideIndex].key}</span></h1>
+                <h1 className={styles.About__title}>ABOUT <span>{contents[activeSlideIndex]?.key || ""}</span></h1>
                 <Swiper
-                    modules={[Pagination, EffectFade]}
+                    modules={[Pagination, EffectFade, Autoplay]}
                     spaceBetween={50}
                     slidesPerView={1}
                     onSlideChange={(swiper) => handleSlideChange(swiper)}
@@ -80,6 +82,13 @@ const About = (props) => {
                     pagination={{ clickable: true }}
                     effect="fade"
                     fadeEffect={{ crossFade: true }}
+                    loop={true}
+                    autoplay={
+                        {
+                            delay: 5000,
+                            disableOnInteraction: false
+                        }
+                    }
                 >
                     {
                         contents.map((content) => {

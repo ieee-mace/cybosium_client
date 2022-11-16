@@ -13,15 +13,15 @@ const Footer = (props) => {
                 <img src={CybosiumLogo} />
             </div>
             <div className={styles.Footer__icons}>
-                <img src={FacebookLogo} />
-                <img src={LinkedinLogo} />
-                <img src={InstagramLogo} />
+                <a href="https://google.com" target="_blank"><img src={FacebookLogo} /></a>
+                <a href="https://google.com" target="_blank"><img src={LinkedinLogo} /></a>
+                <a href="https://google.com" target="_blank"><img src={InstagramLogo} /></a>
             </div>
 
             <p className={styles.Footer__text}>
                 <span>© All rights reserved - Cybosium - 2022</span>
                 <span><strong>CYBOSIUM IEEE MACE - Mar Athanasius College of Engineering</strong></span>
-                <span>94004-36827 / roshanrjv.27@gmail.com</span>
+                <span><a href='tel:+919526593349'>9526-593349</a> / <a href='mailto:devadarsan@ieee.org'>devadarsan@ieee.org</a></span>
             </p>
         </div>
     )

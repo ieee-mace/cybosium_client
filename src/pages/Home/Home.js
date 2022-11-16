@@ -15,9 +15,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Home = () => {
-    useEffect(() => AOS.init({
-        once: true
-    }), [])
+    useEffect(() => {
+        AOS.init({
+            once: true
+        })
+    }, [])
 
     return (
         <>

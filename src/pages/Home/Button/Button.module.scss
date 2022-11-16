@@ -10,21 +10,79 @@
     border: 2px solid white;
     color: white;
     background-color: transparent;
+    position: relative;
+    overflow: hidden;
+
+    //asdfljaslkfdj
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        bottom: -50%;
+        border-radius: 50%;
+        background-color: #fff;
+        -webkit-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+        // -webkit-transform: translate(-50%, -50%);
+        transform: translate(-30%, 0);
+        z-index: 1;
+    }
+
+    &:hover::after {
+        width: 225%;
+        height: 562.5px;
+    }
+
+
+    &:hover {
+        color: #000;
+    }
+
+    // &:active {
+    //     background-color: #fff;
+    // }
+
+    // asldfjasdf
 
     &__filled {
         background-color: #6A0EDF;
         border: 2px solid #6A0EDF;
+
+        &::after {
+            background-color: #4d08a7;
+        }
+
+        &:hover {
+            color: #eee;
+        }
+
+        // &:active {
+        //     background-color: #4d08a7;
+        // }
     }
 
     span:nth-child(1) {
         flex-grow: 1;
+        z-index: 2;
     }
 
     span:nth-child(2) {
         svg {
             width: 28px;
         }
+
+        z-index: 2;
+
     }
+
+    // custom btn
+
+
+
+    // custon btn
 
     @media (max-width: 425px) {
         width: 100%;

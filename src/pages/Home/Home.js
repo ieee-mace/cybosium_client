@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./Home.module.scss"
 import Navbar from "../Navbar/Navbar"
 import Hero from "./Hero/Hero"
@@ -11,8 +11,14 @@ import Footer from "./Footer/Footer"
 import About from "./About/About"
 import OneBotImage from "../../assets/images/one-bot.png"
 import { Helmet } from "react-helmet";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
+    useEffect(() => AOS.init({
+        once: true
+    }), [])
+
     return (
         <>
             <Helmet>
@@ -34,27 +40,27 @@ const Home = () => {
 
                     </div>
 
-                    <div className={styles.Home__Intro}>
+                    <div className={styles.Home__Intro} data-aos="fade-up">
                         <Intro />
                     </div>
 
-                    <div className={styles.Home__Counter}>
+                    <div className={styles.Home__Counter} data-aos="fade-up">
                         <Counter />
                     </div>
 
-                    <div className={styles.Home__About}>
+                    <div className={styles.Home__About} data-aos="fade-up">
                         <About />
                     </div>
 
-                    <div className={styles.Home__Tracks}>
+                    <div className={styles.Home__Tracks} data-aos="fade-up">
                         <Tracks />
                     </div>
 
-                    <div className={styles.Home__Queries}>
+                    <div className={styles.Home__Queries} data-aos="fade-up">
                         <Queries />
                     </div>
 
-                    <div className={styles.Home__Register}>
+                    <div className={styles.Home__Register} data-aos="fade-up">
                         <Register />
                     </div>
 

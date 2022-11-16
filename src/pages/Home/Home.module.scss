@@ -21,6 +21,11 @@
         margin-bottom: 200px;
     }
 
+    &__Navbar {
+
+        z-index: 100;
+    }
+
     &__Hero {
         flex-grow: 1;
         display: flex;

@@ -15,7 +15,7 @@ const Navbar = (props) => {
                     <img src={Logo} alt="Logo" />
                 </div>
 
-                <button className={styles.Navbar__menu} onClick={() => setMenuOpen(!menuOpen)}><img src={MenuIcon} /></button>
+                <button className={styles.Navbar__menu} onClick={() => { console.log("clicked"); setMenuOpen(!menuOpen) }}><img src={MenuIcon} /></button>
             </div>
 
             <ul className={`${styles.Navbar__links} ${menuOpen ? styles.Navbar__links_active : ""}`}>

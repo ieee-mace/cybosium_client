@@ -48,19 +48,19 @@ const Home = () => {
                         <Counter />
                     </div>
 
-                    <div className={styles.Home__About} data-aos="fade-up">
+                    <div className={styles.Home__About}>
                         <About />
                     </div>
 
-                    <div className={styles.Home__Tracks} data-aos="fade-up">
+                    <div className={styles.Home__Tracks}>
                         <Tracks />
                     </div>
 
-                    <div className={styles.Home__Queries} data-aos="fade-up">
+                    <div className={styles.Home__Queries}>
                         <Queries />
                     </div>
 
-                    <div className={styles.Home__Register} data-aos="fade-up">
+                    <div className={styles.Home__Register}>
                         <Register />
                     </div>
 

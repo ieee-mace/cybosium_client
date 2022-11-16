@@ -31,12 +31,14 @@
 
         &:hover {}
 
-        &:nth-child(1) {
-            background-image: url(../../../assets/images/robots/a.png);
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
             position: relative;
+
 
             &::after {
                 position: absolute;
@@ -44,39 +46,26 @@
                 content: "";
                 width: 100%;
                 height: 100%;
+
+                /* From https://css.glass */
+                background: rgba(0, 0, 0, 0.7);
+                // border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
             }
+        }
+
+        &:nth-child(1) {
+            background-image: url(../../../assets/images/robots/a.png);
         }
 
         &:nth-child(2) {
-            background-image: url(../../../assets/images/robots/b.png);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: relative;
-
-            &::after {
-                position: absolute;
-                background-color: rgba(0, 0, 0, 0.8);
-                content: "";
-                width: 100%;
-                height: 100%;
-            }
+            background-image: url(../../../assets/images/robots/b.png)
         }
 
         &:nth-child(3) {
-            background-image: url(../../../assets/images/robots/c.png);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: relative;
-
-            &::after {
-                position: absolute;
-                background-color: rgba(0, 0, 0, 0.8);
-                content: "";
-                width: 100%;
-                height: 100%;
-            }
+            background-image: url(../../../assets/images/robots/c.png)
         }
     }
 

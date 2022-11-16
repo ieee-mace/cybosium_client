@@ -13,29 +13,32 @@ import Tickets from "./pages/Tickets/Tickets";
 import Admin from "./pages/Admin/Admin"
 import OpeningSoon from "./pages/OpeningSoon/OpeningSoon"
 import "./assets/scss/global.scss"
+import { Helmet } from "react-helmet";
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/opening-soon" element={<OpeningSoon />} />
+    <>
+      <AuthProvider>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/opening-soon" element={<OpeningSoon />} />
 
-        {/* Protected Routes */}
-        <Route element={<ProtectedRoute />}>
-          <Route path="/tickets" element={<Tickets />} />
-          <Route path="/tickets/:id" element={<Ticket />} />
-          <Route path="/my-account" element={<Account />} />
-          <Route element={<BootstrapWrapper />}>
-            <Route path="/admin/*" element={<Admin />} />
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/tickets" element={<Tickets />} />
+            <Route path="/tickets/:id" element={<Ticket />} />
+            <Route path="/my-account" element={<Account />} />
+            <Route element={<BootstrapWrapper />}>
+              <Route path="/admin/*" element={<Admin />} />
+            </Route>
           </Route>
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AuthProvider>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
+    </>
   );
 }
 

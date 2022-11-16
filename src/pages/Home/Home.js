@@ -25,6 +25,16 @@ const Home = () => {
                 <title>Home | Cybosium</title>
             </Helmet>
             <div className={styles.Home}>
+                <div className={styles.containerLines}>
+                    <div className={styles.containerLinesItem}></div>
+                    <div className={styles.containerLinesItem}></div>
+                    <div className={styles.containerLinesItem}></div>
+                    <div className={styles.containerLinesItem}></div>
+                    <div className={styles.containerLinesItem}></div>
+                    <div className={styles.containerLinesItem}></div>
+                    <div className={styles.containerLinesItem}></div>
+                </div>
+
                 <div className={styles.Home__container}>
                     <div className={styles.Home__HeroWrapper}>
                         <div className={styles.Home__Navbar}>
